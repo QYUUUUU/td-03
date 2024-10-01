@@ -8,7 +8,6 @@ export class City{
     country: string;
     location: GPS;
 
-
     constructor(id: number, name: string, slug: string, parkingIds:number[], country:string, location: GPS){
         this.id = id;
         this.name = name;
