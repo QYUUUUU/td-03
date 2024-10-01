@@ -1,5 +1,5 @@
 import { Hono } from 'hono'
-
+require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
 const app = new Hono()
 
 app.get('/', (c) => {
@@ -8,6 +8,6 @@ app.get('/', (c) => {
 
 
 export default { 
-  port: 80, 
+  port: process.env.PORT, 
   fetch: app.fetch, 
-} 
+}
