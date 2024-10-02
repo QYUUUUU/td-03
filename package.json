@@ -2,6 +2,7 @@
   "name": "td-03",
   "scripts": {
     "dev": "bun run --hot src/index.ts"
+    
   },
   "dependencies": {
     "dotenv": "^16.4.5",

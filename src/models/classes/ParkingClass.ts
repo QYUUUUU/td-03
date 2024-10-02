@@ -10,7 +10,7 @@ export class Parking{
     numberOfSpots: number
     opened: boolean;
     hourlyRate: number;
-    parkIds: number[];
+    parkIds: number[]=[];
 
 
     constructor( name: string, cityId: number, location: GPS, numberOfSpots: number, opened: boolean, hourlyRate: number){
