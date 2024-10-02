@@ -3,7 +3,7 @@ export function toSlug(text: string): string {
     let slug = text.toLowerCase();
 
     // 2. Remplacer les caractères accentués par leurs équivalents sans accent
-    slug = slug.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    slug = slug.normalize("NFD").replace(/[\u0300-\u036f]/g, "");//\u0300-\u036f ne cible que les accents et pas la lettre 
 
     // 3. Remplacer les espaces et autres caractères spéciaux par des tirets
     slug = slug.replace(/\s+/g, '-'); // Remplacer les espaces par des tirets
