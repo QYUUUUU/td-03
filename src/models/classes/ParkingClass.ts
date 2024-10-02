@@ -1,8 +1,9 @@
 import { GPS } from "../types/GPSType"
 import { Spot } from "./SpotClass";
+import { v4 as uuid, v4 } from 'uuid';
 
 export class Parking{
-    id: number;
+    id: string=uuid();
     name: string;
     cityId: number;
     location: GPS;
@@ -12,8 +13,7 @@ export class Parking{
     parkIds: number[];
 
 
-    constructor(id: number, name: string, cityId: number, location: GPS, numberOfSpots: number, opened: boolean, hourlyRate: number){
-        this.id = id;
+    constructor( name: string, cityId: number, location: GPS, numberOfSpots: number, opened: boolean, hourlyRate: number){
         this.name = name;
         this.cityId = cityId;
         this.location = location;
