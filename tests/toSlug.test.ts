@@ -2,7 +2,7 @@ import { describe, test, expect, it } from "bun:test";
 import { toSlug } from "../src/utils/toSlug";
 
 
-describe('toSlug', () => {
+describe('Tests de la fonction toSlug', () => {
 
     test('Test de suppression des espaces et charactères spéciaux', () => expect(toSlug("Bonjour le monde !")).toBe("bonjour-le-monde"));
 
