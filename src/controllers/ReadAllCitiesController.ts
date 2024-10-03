@@ -1,6 +1,6 @@
 import { Hono } from 'hono'
 
-export const HomeController = new Hono()
+export const ReadAllCities = new Hono()
   .get('/', (c) => c.html(`<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -10,7 +10,7 @@ export const HomeController = new Hono()
     </head>
     <body>
       <h1>Welcok</h1>
-      <img src="./static/assets/images/parking.png" alt="EuroPark Parking">
+      <img src="/assets/images/parking.png" alt="EuroPark Parking">
       <p>
         Save time and money with EuroPark! Enjoy a 100% contactless parking
         experience for a short or long duration in our car parks in Europe!
