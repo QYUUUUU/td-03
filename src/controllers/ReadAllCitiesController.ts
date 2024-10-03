@@ -1,4 +1,16 @@
 import { Hono } from 'hono'
+import { cities, parkings } from '../data/staticDatabase';
+
+const cityListItems = cities.map(city => `
+  <li>
+    <strong>City:</strong> ${city.name} <br/>
+    <strong>ID:</strong> ${city.id} <br/>
+    <strong>Slug:</strong> ${city.slug} <br/>
+    <strong>Country:</strong> ${city.country} <br/>
+    <strong>Parking IDs:</strong> ${city.parkingIds.join(', ')} <br/>
+    <strong>Location:</strong> Latitude: ${city.location.latitude}, Longitude: ${city.location.longitude}
+  </li>
+`).join('');
 
 export const ReadAllCities = new Hono()
   .get('/', (c) => c.html(`<!DOCTYPE html>
@@ -9,17 +21,12 @@ export const ReadAllCities = new Hono()
       <title>Welcome to EuroPark</title>
     </head>
     <body>
-      <h1>Welcok</h1>
-      <img src="/assets/images/parking.png" alt="EuroPark Parking">
-      <p>
-        Save time and money with EuroPark! Enjoy a 100% contactless parking
-        experience for a short or long duration in our car parks in Europe!
-      </p>
-      <nav>
-        <ul>
-          <li><a href="/cities">Our Cities</a></li>
-          <li><a href="/parkings">Our Car Parks</a></li>
-        </ul>
-      </nav>
+      <h1>City</h1>
+      <body>
+      <h1>List of Cities</h1>
+      <ul>
+        ${cityListItems}
+      </ul>
+    </body>
     </body>
     </html>`));
