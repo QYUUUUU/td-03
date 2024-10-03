@@ -1,9 +1,10 @@
-import { describe, expect, it } from "bun:test";
+import { expect, test, describe } from "bun:test"
 import { generateRandomNumberId } from "../src/utils/generateRandomNumberId";
 
-describe('toSlug', () => {
+
+describe('Test de génération de nombre aléatoire', () => {
     const firstId = generateRandomNumberId()
     const secondId = generateRandomNumberId()
 
-    expect(firstId).not.toBe(secondId);
+    test('test du bon affichage de HelloHuman', () => expect(firstId).not.toBe(secondId));
 });
