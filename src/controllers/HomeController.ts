@@ -7,6 +7,12 @@ export const HomeController = new Hono()
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css"/>
+      <style>
+      img{
+        width:250px;
+        height:auto;
+      }
+      </style>
       <title>Welcome to EuroPark</title>
     </head>
     <body>
