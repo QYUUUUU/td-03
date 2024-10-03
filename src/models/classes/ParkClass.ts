@@ -1,5 +1,6 @@
+import { v4 as uuid, v4 } from 'uuid';
 export class Park{
-    id: number;
+    id: string=uuid();
     spotId: string;
     startedAt: Date;
     endedAt: Date;
@@ -7,8 +8,7 @@ export class Park{
     paid: boolean;
 
 
-    constructor(id: number, spotId: string, startedAt: Date, endedAt: Date, price: number, paid: boolean,){
-        this.id = id;
+    constructor( spotId: string, startedAt: Date, endedAt: Date, price: number, paid: boolean,){
         this.spotId = spotId;
         this.startedAt = startedAt;
         this.endedAt = endedAt;

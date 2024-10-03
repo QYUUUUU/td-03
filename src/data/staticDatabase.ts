@@ -49,13 +49,13 @@ export const cities: City[] = [
   
   // Create an array of Parking instances
   export const parkings: Parking[] = [
-    new Parking(generateRandomNumberId(), 'A', cities[0].id, cities[0].location, 100, true, 4.5),
-    new Parking(generateRandomNumberId(), 'B', cities[1].id, cities[1].location, 50, true, 3),
-    new Parking(generateRandomNumberId(), 'C', cities[1].id, cities[1].location, 80, true, 2.5),
-    new Parking(generateRandomNumberId(), 'D', cities[2].id, cities[2].location, 40, true, 2.8),
-    new Parking(generateRandomNumberId(), 'E', cities[3].id, cities[3].location, 70, true, 3.1),
-    new Parking(generateRandomNumberId(), 'F', cities[4].id, cities[4].location, 60, true, 2.4),
-    new Parking(generateRandomNumberId(), 'G', cities[4].id, cities[4].location, 90, true, 3.2)
+    new Parking( 'A', cities[0].id, cities[0].location, 100, true, 4.5),
+    new Parking( 'B', cities[1].id, cities[1].location, 50, true, 3),
+    new Parking( 'C', cities[1].id, cities[1].location, 80, true, 2.5),
+    new Parking( 'D', cities[2].id, cities[2].location, 40, true, 2.8), // on ne spécifie pas d'ID car il est déjà créé par l'UUID 
+    new Parking( 'E', cities[3].id, cities[3].location, 70, true, 3.1),
+    new Parking( 'F', cities[4].id, cities[4].location, 60, true, 2.4),
+    new Parking( 'G', cities[4].id, cities[4].location, 90, true, 3.2)
   ];
   
   // Associate parkingIds with cities
@@ -64,3 +64,5 @@ export const cities: City[] = [
   cities[2].parkingIds = [parkings[3].id];
   cities[3].parkingIds = [parkings[4].id];
   cities[4].parkingIds = [parkings[5].id, parkings[6].id];
+
+  //console.log(cities)  //test 
