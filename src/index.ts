@@ -4,6 +4,7 @@ import { ReadAllCities } from './controllers/ReadAllCitiesController';
 import { serveStatic } from 'hono/bun'
 import { cities, parkings } from './data/staticDatabase';
 
+
 require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
 
 const app = new Hono()

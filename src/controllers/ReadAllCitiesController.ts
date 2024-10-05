@@ -1,25 +1,16 @@
 import { Hono } from 'hono'
+import {ReadAllCitiesView} from "../views/city/ReadAllCitiesView"
+import { cities } from '../data/staticDatabase';
+import { ReadAllCitiesViewProps } from '../views/city/ReadAllCitiesView';
 
 export const ReadAllCities = new Hono()
-  .get('/', (c) => c.html(`<!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Welcome to EuroPark</title>
-    </head>
-    <body>
-      <h1>Welcok</h1>
-      <img src="/assets/images/parking.png" alt="EuroPark Parking">
-      <p>
-        Save time and money with EuroPark! Enjoy a 100% contactless parking
-        experience for a short or long duration in our car parks in Europe!
-      </p>
-      <nav>
-        <ul>
-          <li><a href="/cities">Our Cities</a></li>
-          <li><a href="/parkings">Our Car Parks</a></li>
-        </ul>
-      </nav>
-    </body>
-    </html>`));
+var variable: ReadAllCitiesViewProps={
+  citiesArray:cities
+}
+
+
+
+ReadAllCities.get('/', (c) => {
+  const html = ReadAllCitiesView(variable);
+  return c.html(html);
+});
