@@ -37,7 +37,7 @@ export const ReadAllCitiesView =
     
 
     
-    <Layout pageTitle="Titre">
+    <Layout pageTitle="All our cities">
     
     <div>   
        
