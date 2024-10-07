@@ -2,8 +2,8 @@ import { Hono } from 'hono'
 import { HomeController } from './controllers/HomeController';
 import { ReadAllCities } from './controllers/ReadAllCitiesController';
 import { serveStatic } from 'hono/bun'
-import { cities, parkings } from './data/staticDatabase';
 import { trimTrailingSlash } from 'hono/trailing-slash'
+import { db } from './models/database/databaseInit';
 
 
 require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
