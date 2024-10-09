@@ -25,7 +25,7 @@ export const HomeController = new Hono()
       <nav>
         <ul>
           <li><a href="/cities">Our Cities</a></li>
-          <li><a href="/parkings">Our Car Parks</a></li>
+          <li><a href="/carParks">Our Car Parks</a></li>
         </ul>
       </nav>
     </body>
