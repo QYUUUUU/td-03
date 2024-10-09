@@ -15,7 +15,7 @@ app.use(trimTrailingSlash())
 
   .route('/', HomeController)
   .route('/cities', ReadAllCities)
-  .route('/cities/show/:city', ReadOneCity)
+  .route('/cities/:city', ReadOneCity)
 
 app.use('/static/*', serveStatic({ root: './' }))
 
