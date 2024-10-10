@@ -8,23 +8,23 @@ export type ReadAllParkingsViewProps = {
 //utilisation du composant Layout en tant que base
 //et définition du composant fonctionnel ReadAllCitiesView
 
-export const ReadAllCarParksView =
+export const ReadAllParkingsView =
 ({ parkingArray }: ReadAllParkingsViewProps,) =>{
   
    const parkingsList=(parking:Parking[])=> {
-    var carParksList:String[]=[]
+    var ParkingsList:String[]=[]
     for (let i = 0; i < parking.length; i++) {
-       carParksList.push(parking[i].name)
+       ParkingsList.push(parking[i].name)
     }
-    return(carParksList)
+    return(ParkingsList)
   }
 
   const parkingsLink=(parking:Parking[])=> {
-    var carParksLink:string[]=[]
+    var ParkingsLink:string[]=[]
     for (let i = 0; i < parking.length; i++) {
-       carParksLink.push("/parkings/"+parking[i].name)
+       ParkingsLink.push("/parkings/"+parking[i].name)
     }
-    return(carParksLink)
+    return(ParkingsLink)
   }
   
   var variable: ReadAllParkingsViewProps={
@@ -32,33 +32,19 @@ export const ReadAllCarParksView =
   }
   var parkingLink1=parkingsLink(parkingArray)
   var parkingList1=parkingsList(parkingArray)
-    return(
-    
 
-    
+  return(
     <Layout pageTitle="All our parkings">
-    
     <div>   
-       
         <h1>Welcome</h1>
         <img src="./static/assets/images/parking.png" alt="EuroPark Parking"/>
-       
-       
             <ul>
               {parkingList1.map((name1:String,index:number) => (
                 <li><a href={parkingLink1[index]}>{name1}</a></li>
               ))}
             </ul>
-        
-        
     </div>
-    
-    
-    
     </Layout>
-    
   )
-    
- 
 };
-export default ReadAllCarParksView;
+export default ReadAllParkingsView;

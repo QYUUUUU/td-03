@@ -3,8 +3,6 @@ import { HomeController } from './controllers/HomeController';
 import { serveStatic } from 'hono/bun'
 import { trimTrailingSlash } from 'hono/trailing-slash'
 import { db } from './models/database/databaseInit';
-import { ReadAllCarParks } from './controllers/ReadAllCarParksController';
-import { ReadOneParking } from './controllers/ReadOneParkingController';
 import { cityRoutes } from './routes/cityRoutes';
 import { parkingRoutes } from './routes/parkingRoutes';
 
@@ -12,7 +10,6 @@ import { parkingRoutes } from './routes/parkingRoutes';
 const initDB = db;
 
 require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
-const superr=db;
 const app = new Hono();
 app.use(trimTrailingSlash())
   .route('/', cityRoutes)
