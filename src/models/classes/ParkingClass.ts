@@ -1,6 +1,6 @@
 import { GPS } from "../types/GPSType"
 import { Spot } from "./SpotClass";
-import { v4 as uuid, v4 } from 'uuid';
+import { v4 as uuid } from 'uuid';
 
 export class Parking{
     id: string=uuid();
