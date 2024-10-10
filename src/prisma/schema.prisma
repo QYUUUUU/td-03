@@ -8,38 +8,38 @@ datasource db {
 }
 
 model City {
-  id       String    @id @default(uuid()) // Changed to UUID
+  id       Int       @id
   name     String    @unique
-  slug     Int       @unique
+  slug     String    @unique
   location String?
   country  String
   parkings Parking[]
 }
 
 model Parking {
-  id             String  @id @default(uuid()) // Changed to UUID
-  name           String  @unique
-  location       String?
-  numberOfPlaces Int
-  opened         Boolean @default(true)
-  hourlyRate     Int
-  city           City    @relation(fields: [cityId], references: [id])
-  cityId         String // Updated to match City's UUID
-  spots          Spot[]
+  id            String  @id @default(uuid())
+  name          String  @unique
+  location      String?
+  numberOfSpots Int
+  opened        Boolean @default(true)
+  hourlyRate    Int
+  city          City    @relation(fields: [cityId], references: [id])
+  cityId        Int
+  spots         Spot[]
 }
 
 model Park {
-  id                 String    @id @default(uuid()) // Changed to UUID
+  id                 String    @id @default(uuid())
   startedAt          DateTime
   endedAt            DateTime?
   vehicleNumberPlate String
   spot               Spot      @relation(fields: [spotId], references: [id])
-  spotId             String // Updated to match Spot's UUID
+  spotId             String
 }
 
 model Spot {
-  id        String  @id @default(uuid()) // Changed to UUID
+  id        String  @id @default(uuid())
   parking   Parking @relation(fields: [parkingId], references: [id])
-  parkingId String // Updated to match Parking's UUID
+  parkingId String
   parks     Park[]
 }
