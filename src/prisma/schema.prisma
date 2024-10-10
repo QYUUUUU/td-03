@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -12,39 +6,40 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
 model City {
-  id      Int      @id @default(autoincrement())
-  name    String   @unique
-  slug    Int      @unique
+  id       String    @id @default(uuid()) // Changed to UUID
+  name     String    @unique
+  slug     Int       @unique
   location String?
-  country String
+  country  String
   parkings Parking[]
 }
 
 model Parking {
-  id             Int      @id @default(autoincrement())
-  name           String   @unique
+  id             String  @id @default(uuid()) // Changed to UUID
+  name           String  @unique
   location       String?
   numberOfPlaces Int
-  opened         Boolean  @default(true)
+  opened         Boolean @default(true)
   hourlyRate     Int
-  city           City     @relation(fields: [cityId], references: [id])
-  cityId         Int
+  city           City    @relation(fields: [cityId], references: [id])
+  cityId         String // Updated to match City's UUID
   spots          Spot[]
 }
 
 model Park {
-  id                String  @id
-  startedAt         DateTime
-  endedAt           DateTime?
+  id                 String    @id @default(uuid()) // Changed to UUID
+  startedAt          DateTime
+  endedAt            DateTime?
   vehicleNumberPlate String
-  spot              Spot    @relation(fields: [spotId], references: [id])
-  spotId            Int
+  spot               Spot      @relation(fields: [spotId], references: [id])
+  spotId             String // Updated to match Spot's UUID
 }
 
 model Spot {
-  id        Int      @id @default(autoincrement())
-  parking   Parking  @relation(fields: [parkingId], references: [id])
-  parkingId Int
+  id        String  @id @default(uuid()) // Changed to UUID
+  parking   Parking @relation(fields: [parkingId], references: [id])
+  parkingId String // Updated to match Parking's UUID
   parks     Park[]
 }

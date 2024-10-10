@@ -7,15 +7,16 @@ import { trimTrailingSlash } from 'hono/trailing-slash'
 import { db } from './models/database/databaseInit';
 import { cities, parkings } from './data/staticDatabase';
 
+//We assign a variable with db so that the database may be initialized for first time users
+const initDB = db;
 
 require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
 
 const app = new Hono();
 app.use(trimTrailingSlash())
-
-  .route('/', HomeController)
   .route('/cities', ReadAllCities)
   .route('/cities/:city', ReadOneCity)
+  .route('/', HomeController)
 
 app.use('/static/*', serveStatic({ root: './' }))
 
