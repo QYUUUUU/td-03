@@ -1,5 +1,10 @@
 import { PrismaClient } from '@prisma/client';
+import { db } from '../models/database/databaseInit';
 import { cities, parkings } from '../data/staticDatabase';
+
+
+//We assign a variable with db so that the database may be initialized for first time users
+const initDB = db;
 
 const prisma = new PrismaClient();
 
